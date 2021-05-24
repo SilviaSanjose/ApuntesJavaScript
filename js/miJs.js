@@ -152,3 +152,41 @@ cuadradoPromesas(0)
         return console.log("**Fin promesa***")
     })
     .catch(err => console.error(err));
+
+
+///ASYNC/AWAIT
+
+async function asincrona(){
+        try {
+            console.log("****Incio async function****");
+            let obj= await cuadradoPromesas(0);
+            console.log(`Async Function 0: ${obj.value},  ${obj.result}`);
+            obj= await cuadradoPromesas(1);
+            console.log(`Async Function 1: ${obj.value},  ${obj.result}`);
+            obj= await cuadradoPromesas(2);
+            console.log(`Async Function 2: ${obj.value},  ${obj.result}`);
+        } catch (error) { 
+            console.error(error);
+         } 
+}
+
+// En caso de función anónima:
+const asincrona2 = async () =>{
+    try {
+        console.log("****Incio async function****");
+        let obj= await cuadradoPromesas(3);
+        console.log(`Async Function 3: ${obj.value},  ${obj.result}`);
+
+    } catch (error) { 
+        console.error(error);
+     } 
+} 
+
+(function(){    //añado setTimeout en vez de llamada directamente a asincrona() para que se muestre después de las promesas en consola
+    setTimeout(()=>{
+        asincrona()
+    }, 4000);
+    setTimeout(()=>{
+        asincrona2()
+    }, 8000);
+})();
