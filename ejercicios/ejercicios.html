@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="ejercicios.js"></script>
+    <link rel="shortcut icon" href="#">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: sans-serif;
+        }
+        nav {
+            background-color: #f8f9fa;
+            padding: 16px;
+        }
+        nav a {
+            color: black;
+            font-size: 1.25rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../home.html">Home</a> 
+        </nav>
+    </header>
+    <ol>EJERCICIOS
+    </br></br>
+        <li 1>Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+            <pre>
+            caracteres = mi =>(!mi) ? console.log("1)No hay texto"): console.log("1)El número de caractere es: ", mi.length);
+            caracteres("holaa") 
+
+            </pre>
+        </li>
+
+    <li 2> Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+        <pre>
+        function recortar (mi, n){
+            if(!mi){
+                console.log("2)No hay texto")
+            }else {
+            let mire= mi.substring(0, n)
+            //let mire= mi.slice(0, n)
+            console.log("2)Texto recortado: ", mire) 
+            }
+        }
+        recortar("Hola Caracola", 7)
+
+    </pre>
+    </li>
+
+    <li 3>Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+        <pre>
+        stringArray = ( miString) => console.log("4)Texto a Array: ",miString.split(' '))
+        stringArray("Esta es mi cadena")
+
+        </pre>
+    </li>
+
+    <li 4>Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+        <pre>
+        function repetirTexto(text, n){
+            for (let t = 0; t&lt;n; t++){
+                console.log('4) Repetir texto: ', text)
+            }
+        }
+        repetirTexto("Este es mi texto", 5)
+
+        </pre>
+    </li>
+
+    <li 5> Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+        <pre>
+        function leerAlReves(text){
+            let reves= '';
+            let contador = text.length
+            while( contador >=0){
+                reves += text.charAt(contador)
+                contador--
+            }
+        console.log('5)Invertir palabras: ', reves)
+        }
+        leerAlReves("Hola Mundo")
+
+        const alEevesSimple = (cadena = "") =>
+            (!cadena)   //si cadena/parámetro no existe
+                ?console.log("No hay texto")
+                :console.log(cadena.split('').reverse().join(''));   //Split separa en caracteres y hace array, Reverse los coloca al revés, y Join los une en una cadena de nuevo
+
+        alEevesSimple("Hola Mundo")
+
+        </pre>
+    </li>
+
+    <li 6> Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+        <pre>
+        const contarRepetidos = (cadena="", palabra="") => {
+            if (!cadena || !palabra) return console.log("6)faltan datos");
+
+            let contador = 0
+            var posicion = cadena.indexOf(palabra)
+            while (posicion != -1) {
+                contador++
+                posicion= cadena.indexOf(palabra, posicion+2)
+            }
+            console.log('6)La palabra se repite: ', contador , ' veces')
+        }
+        contarRepetidos("hola mundo en mi mundo e mi mundo", "mundo")
+
+        </pre>
+    </li>
+
+    <li 7> Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+        <pre>
+        const palindromo = (cadena) => {
+            if (!cadena) return console.log("7)No hay palabra");
+            cadena = cadena.toLowerCase();
+            (cadena && cadena == cadena.split('').reverse().join(''))
+            ?console.log("7) Palabra palíndroma")
+            :console.log('7) Palabra no palíndroma')
+        }
+        palindromo("accA")
+
+        
+        </pre>
+    </li>
+
+    <li 8>Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+        <pre>
+        const eliminarPatron = (texto="", sup="") =>{
+            if (!texto || !sup) return console.log("8)Necesario texto y patron a eliminar")
+            texto = texto.replaceAll(sup, "")
+            console.log(texto)
+        }
+        eliminarPatron("xyz1, xyz2, xyz3, xyz4 y 6xyz5", "xy")
+
+        </pre>
+    </li>
+
+    <li 9>Programa una función que obtenga un numero aleatorio entre 501 y 600.
+        <pre>
+        (function aleatorio(){
+            let a = Math.floor(Math.random() * (600 -501) + 501);
+            console.log("9) Número aleatorio: " , a)
+        })();
+        </pre>
+
+    </li>
+
+    <li 10>Programa una función que reciba un número y evalúe si es capicúa o no.
+        <pre>
+        function capicua(n){ 
+            if (isNaN(n)) console.log("10) Capicúa: No es un número");
+            if ( n.toString() == n.toString().split('').reverse().join('')) {
+                console.log("10) Número capicúa")
+            }else console.log("10) Número no capicúa")
+        }
+        capicua(2552)   
+        </pre>
+
+    </li>
+
+    <li 11>Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+        <pre>
+        function factorial(n){
+            if (isNaN(n)) console.log("11) Factorial: No es un número");
+            if (n&lt;0) console.log("11) Factorial no puede ser negativo");
+            let factorial = n;
+            for(let i=1; i&lt;n; i++){
+                factorial *= i;
+            }
+            console.log(factorial)
+        }
+        factorial(30)    
+        </pre>
+
+    </li>
+
+    <li >
+        <pre>
+            
+        </pre>
+
+    </li>
+</ol>
+</body>
+</html>
