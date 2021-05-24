@@ -125,51 +125,74 @@
         </pre>
     </div>
 
-    <br>
+    
     <!--validar formularios-->
     <div>
-        <p>***Validar 1º campo formulario:***</p>
-        <form action="" method="GET" id="form1">
-            <input type="text" id="usuario"></br>
-            <input type="text" id="nombre"></br>
-            <input type="button" value="Enviar" onmouseup="validar()"></br>
-        </form>
-        <script>
-            function validar(){
-                var n_usuario = document.getElementById("usuario").value;
-                if (n_usuario == ""){
-                    document.getElementById("usuario").after("¡Rellena el campo¡");
+        <h3>Validar formulario básico</h3>
+        <div class="d-flex justify-content-around flex-wrap">
+            <form action="" method="GET" id="form1">
+                <input type="text" id="usuario"></br>
+                <input type="button" value="Enviar" onmouseup="validar()"></br>
+            </form>
+            <script>
+                function validar(){
+                    var n_usuario = document.getElementById("usuario").value;
+                    if (n_usuario == ""){
+                        document.getElementById("usuario").after("¡Rellena el campo¡");
+                    }
                 }
-            }
-        </script>
+            </script>
+            <pre class="border mb-5">
+        function validar()|
+            var n_usuario = document.getElementById("usuario").value;
+            if (n_usuario == "")|
+                document.getElementById("usuario").after("¡Rellena el campo¡");
+            |
+        |
+            </pre>
+        </div>
     </div>
 
-    <br>
+    
     <!--ejemplo bucles for-->
     <div>
-        <p>Ejemplo de bucles forEach y for of</p>
+        <h3>Ejemplo de bucles forEach y for of</h3>
         <script>
             var x = ["uno", "dos", "tres"];
             
-            document.write("forEach función clásica: ")  //bucle forEach
+            document.write("forEach función clásica >>>>")  //bucle forEach
             x.forEach(mifuncion);
             function mifuncion( item){
                 document.write(item + ' ') 
             }
 
-            document.write("<br>forEach arrow function: ")  //bucle forEach con arrow function
+            document.write("<br>forEach arrow function >>>> ")  //bucle forEach con arrow function
             x.forEach(i => document.write(i + ' '))
 
-            document.write("<br>for of: ") //bucle for of
+            document.write("<br>for of >>>> ") //bucle for of
             for(var i of x){
                 document.write(i + ' ')
             } 
         </script>
+        <pre class="border mb-5">
+        var x = ["uno", "dos", "tres"];
+        
+        x.forEach(mifuncion);
+        function mifuncion( item)|
+            document.write(item + ' ') 
+        |
+
+        x.forEach(i => document.write(i + ' '))
+
+        for(var i of x)|
+            document.write(i + ' ')
+        |
+        </pre>
     </div>
 
     <!--Ajax-->
     <div>
-        <br><h4>Ejemplo llamada Ajax para cargar contenido de otro HTML</h4>
+        <h3>Ejemplo llamada Ajax para cargar contenido de otro HTML</h3>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
