@@ -10,8 +10,6 @@
         document.getElementById('body').style.transition = 'opacity 2s ease-in-out';
     }, 300);
 })();
-
-
     
 //******* */
 
@@ -97,7 +95,37 @@ sumaFuncion(suma20, numero)
 objetoExportado.saludar(usuario)
 console.log(objetoExportado.despedir)
 
-pordefecto()
+pordefecto();
+
+//Symbol
+
+(() =>{
+    console.log("***Symbol***")
+    let id1 = "hola"
+    let id2 = "hola"
+    console.log(id1 == id2)  //true
+    let id3 = Symbol("hola");
+    let id4 = Symbol("hola");
+    console.log(id3 == id4) //false
+
+    const NOMBRE = Symbol(); 
+    const persona = {  //creo objeto con Symbol
+        [NOMBRE]: "Silvi"
+    };
+    console.log(persona)  //>>  Symbol(): "Silvi"
+
+    persona.NOMBRE = "Silvi2"  //añado al objeto
+    console.log(persona)   //>> NOMBRA: "SIlvi2", Symbol(): "Silvi"
+    console.log(persona.NOMBRE)    //>> Silvi2
+    console.log(persona[NOMBRE])  //>> Silvi
+
+    const SALUDO = Symbol();  //creo nuevo Symbol
+    persona[SALUDO] = () => { console.log("Hola Symbol")}  //añado función Symbol al objeto
+    persona[SALUDO]();
+    
+
+})();
+
 
 //Callbacks
 console.log("******Callbacks******")
@@ -190,3 +218,5 @@ const asincrona2 = async () =>{
         asincrona2()
     }, 8000);
 })();
+
+
