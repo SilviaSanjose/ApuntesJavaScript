@@ -103,10 +103,84 @@ function factorial(n){
     for(let i=1; i<n; i++){
         factorial *= i;
     }
-    console.log(factorial)
+    console.log(`11)El factorial de ${n}, ${factorial}`)
 }
 factorial(30)
 
-//12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+//12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no
+function primo(n){
+    if (isNaN(n)) console.log("12) Primos: No es un número");
+    if (n<=1) console.log("12) Primos: No puede ser negativo, cero o uno");
+    let divisible = false;
+    for (let i=2;i<n;i++){
+        if((n%i) === 0) {
+            divisible = true;
+            break;
+        }
+    }
+    return (divisible)
+    ? console.log(`12)Primos: El número ${n} no es primo`)
+    : console.log(`12)Primos: El número ${n} es primo`)
+}
+primo(29)
+
 //13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+function par(n){
+    if (isNaN(n)) {
+        console.log("13) Pares: No es un número");
+    }else {
+        if( (n%2) ===0) {
+            console.log(`13)Pares: el númuero ${n} es par`);
+        }else {
+            console.log(`13)Pares: el númuero ${n} es impar`);
+        }
+    }
+}
+par("hh")
+
 //14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+const convertirGrados = (grados, unidad) => {
+    if (typeof(grados) != "number") return console.log("14) Grados: No es un número");
+
+    if (unidad.toLowerCase() == "f") {
+        let f = Math.round((grados * 9)/5 +32);
+        console.log(`14)Grados: ${grados}ºC son ${f}ºF `)  
+    }else if  (unidad.toLowerCase() == "c") {
+        let c = Math.round((grados - 32) *5 /9);
+        console.log(`14)Grados: ${grados}ºF son ${c}ºC `)
+    }else grados = "14) No es una unidad válida"
+    
+}
+convertirGrados(89, "C")
+
+//15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+const binarioDecimal = (n = undefined, medida =undefined) =>{
+    if(n === undefined || medida === undefined) return console.log("15) Binario/Decimal: No hay datos para convertir");
+    if (typeof(n) != "number" || typeof(medida) != "number") return console.log("15) Binario/Decimal: No es un número");
+
+
+    if(medida === 2) {
+        return console.info(`15) El número ${n} base ${medida} es = ${parseInt(n, medida)} base 10`)
+        //parseInt(n, medida) convierte el número n a la base indicada, este caso base 2 binario
+    }else if (medida === 10) {
+        return console.info(`15) El número ${n} base ${medida} es = ${n.toString(2)} base 2`)
+        //toString si le pasas parámetro convierte a binario, indicando base 2
+    }else {
+        return console.log("15)Tipo de base no es válido")
+    }
+}
+binarioDecimal(4, 10)   //base 10 es decimal, base 2 binario
+
+//16) Programa una función que devuelva el precio final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+const precioDescuento = (precio = undefined, descuento = undefined) =>{
+    if(precio === undefined || descuento === undefined) return console.log("16) Descuento: no hay precio o descuento indicado");
+    if (typeof(precio) != "number" || typeof(descuento) != "number") return console.log("16) Descuento: No es un número");
+    if(descuento<0)  return console.log("16) Descuento: No se puede aplicar descuento negativo");
+    
+    console.log(`16) Descuento: ${precio} menos ${descuento}% = ${precio - (precio*descuento)/100}`)
+}
+precioDescuento(1000, 20)
+
+
+//17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
