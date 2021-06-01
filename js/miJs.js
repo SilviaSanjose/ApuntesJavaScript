@@ -122,8 +122,21 @@ pordefecto();
     const SALUDO = Symbol();  //creo nuevo Symbol
     persona[SALUDO] = () => { console.log("Hola Symbol")}  //añado función Symbol al objeto
     persona[SALUDO]();
-    
+})();
 
+(()=> {
+    console.log("*********PRUEBAS********")
+    
+    
+  
+        console.log(false && "Valor por defecto") 
+
+
+ 
+
+
+    
+   
 })();
 
 
