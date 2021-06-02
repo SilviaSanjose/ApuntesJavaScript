@@ -127,17 +127,28 @@ pordefecto();
 (()=> {
     console.log("*********PRUEBAS********")
     
-    
+})();  
   
-        console.log(false && "Valor por defecto") 
+console.log("***********Generadores**********")
+//generador, funcion para trabajar mas amigablemente con los elementos de un iterable; vuelve iterable una función
+  //* permite acceder al Symbol.iterator directamente.
+function* iterable(){
+    //yield es como un return que devuelve el valor de la propiedad next(), cuando no encuentra yield ha acabado.
+    yield "hola"; 
+    console.log("Hola consola");
+    yield "hola2";
+    console.log("Seguimos con los yiedl");
+    yield "hola3";
+    yield "hola4";
+}
+let iterador = iterable();
 
+for (let y of iterador){
+    console.log(y)
+}
 
- 
-
-
-    
-   
-})();
+const arr = [...iterable()]; //añado los elemento iteables a un array
+console.log(arr)
 
 
 //Callbacks
