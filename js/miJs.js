@@ -1,3 +1,7 @@
+(()=> {
+    console.log("-*-*-*-*-COMIENZO miJs.js-*-*-*-*-")
+})();
+
 //CARGAR PÁGINA CON DEMORA
     //JQUERY
       /*  $(function(){
@@ -124,11 +128,6 @@ pordefecto();
     persona[SALUDO]();
 })();
 
-(()=> {
-    console.log("*********PRUEBAS********")
-    
-})();  
-  
 console.log("***********Generadores**********")
 //generador, funcion para trabajar mas amigablemente con los elementos de un iterable; vuelve iterable una función
   //* permite acceder al Symbol.iterator directamente.
@@ -148,7 +147,13 @@ for (let y of iterador){
 }
 
 const arr = [...iterable()]; //añado los elemento iteables a un array
-console.log(arr)
+console.log(arr);
+
+
+(()=> {
+})();
+    
+    
 
 
 //Callbacks
