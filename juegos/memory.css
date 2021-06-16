@@ -1,16 +1,15 @@
-
 #win-text {
-   /*display: none;*/
+  /*display: none;*/
 }
 .grid {
-    max-width: 300px;
+  max-width: 300px;
 }
-@media (min-width: 576px) { 
-    .grid {
-        max-width: 400px;
-    }
+@media (min-width: 576px) {
+  .grid {
+    max-width: 400px;
+  }
 }
 
-.grid img{
-    width: 25%
+.grid img {
+  width: 25%;
 }
