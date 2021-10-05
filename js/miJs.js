@@ -215,6 +215,17 @@ cuadradoPromesas(0)
   })
   .catch((err) => console.error(err));
 
+//Otro ejemplo Promesas
+const promesa = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(); //llama al then cuando pasa el tiempo estipulado que es cuando se ha resuelto
+  }, 2000);
+});
+
+promesa.then(() => {
+  console.log("Then de la promesa");
+});
+
 ///ASYNC/AWAIT
 
 async function asincrona() {
