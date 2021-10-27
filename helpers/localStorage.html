@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LocalStorage</title>
+        <link rel="stylesheet" href="./css/main.css" />
+    </head>
+    <script>
+        //comprobación compatibilidad
+        // if (typeof Storage !== "undefined") {
+        //   console.log("Es compatible");
+        // } else {
+        //   // Código cuando Storage NO es compatible
+        //   console.log("NO, nO");
+        // }
+
+        let date = new Date();
+        console.log(localStorage);
+        //comprobación con hora
+        // if (date.getHours() === 11) {
+        //   localStorage.removeItem("token");
+        // }
+
+        //comprobación si hay valores guardados
+        if (!localStorage.getItem("token")) {
+            console.warn("Sin token: inicia sesión");
+        } else {
+            console.log("Hay token");
+            if (localStorage.getItem("expiration") <= date.toDateString()) {
+                console.log("Puedes pasar");
+            } else {
+                console.log("Token cadudado");
+            }
+        }
+
+        const guardarToken = () => {
+            console.log("Guardando");
+            localStorage.setItem("token", "jshbyhutyuiyuytf");
+            localStorage.setItem("expiration", date.toDateString());
+        };
+
+        const eliminarToken = () => {
+            //localStorage.removeItem("token");
+            localStorage.clear(); //eliminar todos los datos
+            console.log("Eliminando");
+        };
+    </script>
+    <script>
+        var data = {};
+        function enviar(e) {
+            e.preventDefault();
+            console.log(e);
+            console.log("enviando");
+            const input = document.querySelectorAll(".input");
+            console.log(input);
+
+            for (var i = 0; i < input.length; i++) {
+                console.log(input[i].name);
+                data[input[i].name] = input[i].value;
+            }
+
+            console.log("data", data);
+        }
+    </script>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../home.html">Home</a>
+                </div>
+            </nav>
+        </header>
+        <main class="container mt-3">
+            <h1>Probando LocalStorage</h1>
+
+            <button onclick="guardarToken()">Iniciar sesión</button>
+            <button onclick="eliminarToken()">Cerrar sesión</button>
+
+            <form onsubmit="enviar(event)">
+                <input type="text" class="input" name="envio1" />
+                <input type="text" class="input" name="envio2" />
+                <input type="submit" value="Submit" />
+            </form>
+        </main>
+
+        <div class="flipswitch">
+            <input
+                type="checkbox"
+                name="flipswitch"
+                class="flipswitch-cb"
+                id="fs"
+                checked
+            />
+            <label class="flipswitch-label" for="fs">
+                <div class="flipswitch-inner"></div>
+                <div class="flipswitch-switch"></div>
+            </label>
+        </div>
+    </body>
+</html>

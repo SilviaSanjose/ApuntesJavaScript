@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../home.html">Home</a> 
+            </div>
+          </nav>
+    </header>
+    <main class="container">
+        <br/>
+        <div>Prueba Copiar texto</div>
+     
+        <br/> <br/>
+        <div id="tool">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni sunt reiciendis.</div>
+        
+        <script>
+            var tool = document.getElementById("tool");
+
+
+                //ejemplo con input
+            tool.addEventListener("click", () => {
+                var aux = document.createElement("input");   
+                aux.setAttribute("value", tool.innerHTML);  
+
+                document.body.appendChild(aux);
+
+                aux.select();  
+                document.execCommand("copy"); 
+                document.body.removeChild(aux);
+
+                //creo elemento párrafo con el texto copiado informativo que se muestra y se elimina al segundo.
+                var aux2 = document.createElement("p"); 
+                aux2.innerHTML = "copiado";
+                tool.appendChild(aux2);
+        
+                setTimeout(function () {
+                    tool.removeChild(aux2);
+                }, 1000);
+                //
+            });
+        </script>
+
+
+        <br/>
+        <!-- Prueba formulario -->
+        <div>
+            <input list="data" id="input" />
+            <datalist id="data">
+                <option>uno</option>
+                <option>dos</option>
+                <option>tres</option>
+            </datalist>
+            <input type="submit" onclick="send()" />
+            <input type="time" datetime="2021-02-12"> fecha </input>
+            <script>
+                function send() {
+                    let value = document.getElementById("input").value;
+                    console.log('valor input form ', value);
+                }
+            </script>
+        </div>
+    </main>
+</body>
