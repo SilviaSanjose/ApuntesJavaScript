@@ -1,0 +1,48 @@
+<script>
+    //prueba para copiar texto
+    var tool = document.getElementById("tool");
+
+    tool.addEventListener("click", () => {
+        var aux = document.createElement("input");
+        aux.setAttribute("value", tool.innerHTML);
+        document.body.appendChild(aux);
+
+        aux.select();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+
+        var aux2 = document.createElement("p");
+        aux2.innerHTML = "copiado";
+        tool.appendChild(aux2);
+
+        setTimeout(function () {
+            tool.removeChild(aux2);
+        }, 500);
+    });
+</script>
+<style>
+    .user-contact p {
+        text-align: left;
+        font-size: 0.9rem;
+        color: #ff7900;
+        font-weight: bold;
+        position: absolute;
+    }
+</style>
+<body>
+    <p style="border-radius:50%">hola</p>
+    <input list="data" id="input" />
+    <datalist id="data">
+        <option>uno</option>
+        <option>dos</option>
+        <option>tres</option>
+    </datalist>
+    <input type="submit" onclick="send()" />
+    <input type="time" datetime="2021-02-12"> fecha </input>
+    <script>
+        function send() {
+            let value = document.getElementById("input").value;
+            console.log(value);
+        }
+    </script>
+</body>

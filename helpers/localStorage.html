@@ -53,9 +53,11 @@
             e.preventDefault();
             console.log(e);
             console.log("enviando");
+            //obtengo todos los inputs
             const input = document.querySelectorAll(".input");
             console.log(input);
 
+            //añado cada input a objeto; nameInput: valorInput
             for (var i = 0; i < input.length; i++) {
                 console.log(input[i].name);
                 data[input[i].name] = input[i].value;

@@ -1,0 +1,88 @@
+h2 {
+    color: blueviolet;
+    border: 1px solid;
+}
+button {
+    color: burlywood;
+    margin: 10px;
+    border: 2px solid;
+}
+
+input {
+    background-image: url("lupa.svg");
+    background-repeat: no-repeat;
+    background-position: 5px;
+    padding-left: 27px;
+}
+input:focus {
+    /*background: none;*/
+}
+
+html,
+body {
+    margin: 0;
+}
+
+.flipswitch {
+    position: relative;
+    width: 84px;
+}
+.flipswitch input[type="checkbox"] {
+    display: none;
+}
+.flipswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #999999;
+    border-radius: 50px;
+}
+.flipswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.flipswitch-inner:before,
+.flipswitch-inner:after {
+    float: left;
+    width: 50%;
+    height: 24px;
+    padding: 0;
+    line-height: 24px;
+    font-size: 18px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.flipswitch-inner:before {
+    content: "ON";
+    padding-left: 12px;
+    background-color: #256799;
+    color: #ffffff;
+}
+.flipswitch-inner:after {
+    content: "OFF";
+    padding-right: 12px;
+    background-color: #ebebeb;
+    color: #888888;
+    text-align: right;
+}
+.flipswitch-switch {
+    width: 20px;
+    margin: 2px;
+    background: #ffffff;
+    border: 1px solid #999999;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 58px;
+    transition: all 0.3s ease-in 0s;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+    margin-left: 0;
+}
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+    right: 0;
+}
